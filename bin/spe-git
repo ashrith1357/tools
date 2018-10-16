@@ -12,7 +12,7 @@ clone () {
   basename=$(basename $1)
   filename=${basename%.*}
   cd $filename
-  mv .git/hooks/pre-commit.sample .git/hooks/pre-commit.sample/pre-commit
+  mv .git/hooks/pre-commit.sample .git/hooks/pre-commit
   cp $tpath/detect-aws-credentials.sh  .git/hooks/pre-commit
   chmod 755 .git/hooks/pre-commit
 }
