@@ -13,7 +13,7 @@ clone () {
   filename=${basename%.*}
   cd $filename
   mv .git/hooks/pre-commit.sample pre-commit
-  rsync -r $cpath/detect-aws-credentials.sh > .git/hooks/pre-commit
+  rsync -r $tpath/detect-aws-credentials.sh > .git/hooks/pre-commit
   chmod 755 .git/hooks/pre-commit
 }
 
