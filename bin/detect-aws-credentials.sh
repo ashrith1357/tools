@@ -50,7 +50,7 @@ if [ -n "$FILES" ]; then
     SECRET_KEY=$(grep -rE --line-number 'secret_key' $FILES)
 
         if [ -n "$ACCESS_KEY" ] || [ -n "$SECRET_KEY" ]; then
-            exec < /dev/tty # Capture input
+            
             echo "=========== Possible AWS Access Key IDs ==========="
             echo "${ACCESS_KEY}"
             echo ""
