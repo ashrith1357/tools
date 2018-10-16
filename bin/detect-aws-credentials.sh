@@ -40,9 +40,7 @@ echo
 
 if [ -n "$FILES" ]; then
     echo "Validating the terraform code for AWS Secrets..please wait"
-    echo
-    echo "*********************************************************"
-    echo
+    
     ACCESS_KEY=$(grep -rE --line-number 'access_key' $FILES)
     SECRET_KEY=$(grep -rE --line-number 'secret_key' $FILES)
 
