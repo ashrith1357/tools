@@ -8,7 +8,7 @@
 tpath="$HOME/tools/bin"
 
 clone () {
-
+  git clone $1
   rsync -r $cpath/detect-aws-credentials.sh > .git/hooks/pre-commit
   chmod 755 .git/hooks/pre-commit
 }
