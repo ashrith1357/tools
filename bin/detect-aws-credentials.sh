@@ -16,11 +16,14 @@ exec 1>&2
 FILES=$(git diff --cached --name-only $against)
 
 if [ -n "$FILES" ]; then
+  echo
+  echo "*********************************************************"
+  echo
    echo "Verifying the terraform format..please wait"
     terraform fmt
 fi
 echo
-echo "*****************************"
+echo "*********************************************************"
 echo
 
 if [ -n "$FILES" ]; then
@@ -35,11 +38,14 @@ if [ -n "$FILES" ]; then
 fi
 
 echo
-echo "*****************************"
+echo "*********************************************************"
 echo
 
 if [ -n "$FILES" ]; then
     echo "Validating the terraform code for AWS Secrets..please wait"
+    echo
+    echo "*********************************************************"
+    echo
     ACCESS_KEY=$(grep -rE --line-number 'access_key' $FILES)
     SECRET_KEY=$(grep -rE --line-number 'secret_key' $FILES)
 
@@ -54,7 +60,10 @@ if [ -n "$FILES" ]; then
             echo ""
 
             while true; do
-
+                    echo "One of secret credentials found so exiting..please check"
+                    echo
+                    echo "*********************************************************"
+                    echo
                     exit 1;
 
             done
