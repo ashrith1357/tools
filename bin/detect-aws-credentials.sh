@@ -11,6 +11,7 @@ fi
 
 # Redirect output to stderr.
 exec 1>&2
+FILES=$(git diff --cached --name-only $against)
 
 if [ -n "$FILES" ]; then
    echo "Verifying the terraform format..please wait"
