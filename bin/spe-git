@@ -17,11 +17,14 @@ clone () {
   chmod 755 .git/hooks/pre-commit
 }
 
-
+commit () {
+      git commit $*
+}
 
 case $1
 in
    clone) clone $2 ;;
+   commit) commit $2 ;;
 
        *) echo "Invalid Argument passed" ;;
 
