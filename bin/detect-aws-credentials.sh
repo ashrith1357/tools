@@ -16,11 +16,8 @@ exec 1>&2
 FILES=$(git diff --cached --name-only $against)
 
 if [ -n "$FILES" ]; then
-  echo
-  echo "*********************************************************"
-  echo
    echo "Verifying the terraform format..please wait"
-    terraform fmt
+   terraform fmt
 fi
 echo
 echo "*********************************************************"
