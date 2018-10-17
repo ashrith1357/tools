@@ -36,29 +36,24 @@ if [ -n "$FILES" ]; then
     echo "Validating the terraform code for AWS Secrets..please wait"
     ACCESS_KEY=$(grep -rE --line-number 'access_key' $FILES)
     SECRET_KEY=$(grep -rE --line-number 'secret_key' $FILES)
-    if [ -n "$ACCESS_KEY" ] || [ -n "$SECRET_KEY" ]; then
-        exec < /dev/tty # Capture input
-        echo "=========== Possible AWS Access Key IDs ==========="
-        echo "${ACCESS_KEY}"
-        echo ""
+ 
         if [ -n "$ACCESS_KEY" ] || [ -n "$SECRET_KEY" ]; then
             exec < /dev/tty # Capture input
             echo "=========== Possible AWS Access Key IDs ==========="
             echo "${ACCESS_KEY}"
             echo ""
-        echo "=========== Possible AWS Secret Access Keys ==========="
-        echo "${SECRET_KEY}"
-        echo ""
+
             echo "=========== Possible AWS Secret Access Keys ==========="
             echo "${SECRET_KEY}"
             echo ""
-        while true; do
+            
+    
             while true; do
                 exit 1;
-                    exit 1;
-        done
+                    
+        
             done
-        fi
+        
     fi
 fi
 
